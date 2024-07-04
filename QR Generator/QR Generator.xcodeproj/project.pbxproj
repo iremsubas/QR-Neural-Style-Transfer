@@ -7,68 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		670FC9482C35716F0005D584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9472C35716F0005D584 /* AppDelegate.swift */; };
-		670FC94A2C35716F0005D584 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9492C35716F0005D584 /* SceneDelegate.swift */; };
-		670FC94C2C35716F0005D584 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC94B2C35716F0005D584 /* ViewController.swift */; };
-		670FC94F2C35716F0005D584 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 670FC94E2C35716F0005D584 /* Base */; };
-		670FC9512C3571710005D584 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 670FC9502C3571710005D584 /* Assets.xcassets */; };
-		670FC9542C3571710005D584 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 670FC9532C3571710005D584 /* Base */; };
-		670FC95F2C3571710005D584 /* QR_Neural_Style_TransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC95E2C3571710005D584 /* QR_Neural_Style_TransferTests.swift */; };
-		670FC9692C3571710005D584 /* QR_Neural_Style_TransferUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9682C3571710005D584 /* QR_Neural_Style_TransferUITests.swift */; };
-		670FC96B2C3571710005D584 /* QR_Neural_Style_TransferUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC96A2C3571710005D584 /* QR_Neural_Style_TransferUITestsLaunchTests.swift */; };
-		670FC9782C35E95D0005D584 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9772C35E95D0005D584 /* ViewModel.swift */; };
+		670FC9862C35EE490005D584 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9852C35EE490005D584 /* AppDelegate.swift */; };
+		670FC9882C35EE490005D584 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9872C35EE490005D584 /* SceneDelegate.swift */; };
+		670FC98A2C35EE490005D584 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9892C35EE490005D584 /* ViewController.swift */; };
+		670FC98D2C35EE490005D584 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 670FC98C2C35EE490005D584 /* Base */; };
+		670FC98F2C35EE4A0005D584 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 670FC98E2C35EE4A0005D584 /* Assets.xcassets */; };
+		670FC9922C35EE4A0005D584 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 670FC9912C35EE4A0005D584 /* Base */; };
+		670FC99D2C35EE4A0005D584 /* QR_GeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC99C2C35EE4A0005D584 /* QR_GeneratorTests.swift */; };
+		670FC9A72C35EE4A0005D584 /* QR_GeneratorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9A62C35EE4A0005D584 /* QR_GeneratorUITests.swift */; };
+		670FC9A92C35EE4A0005D584 /* QR_GeneratorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9A82C35EE4A0005D584 /* QR_GeneratorUITestsLaunchTests.swift */; };
+		670FC9B62C35FCD90005D584 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9B52C35FCD90005D584 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		670FC95B2C3571710005D584 /* PBXContainerItemProxy */ = {
+		670FC9992C35EE4A0005D584 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 670FC93C2C35716F0005D584 /* Project object */;
+			containerPortal = 670FC97A2C35EE490005D584 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 670FC9432C35716F0005D584;
-			remoteInfo = "QR Neural Style Transfer";
+			remoteGlobalIDString = 670FC9812C35EE490005D584;
+			remoteInfo = "QR Generator";
 		};
-		670FC9652C3571710005D584 /* PBXContainerItemProxy */ = {
+		670FC9A32C35EE4A0005D584 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 670FC93C2C35716F0005D584 /* Project object */;
+			containerPortal = 670FC97A2C35EE490005D584 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 670FC9432C35716F0005D584;
-			remoteInfo = "QR Neural Style Transfer";
+			remoteGlobalIDString = 670FC9812C35EE490005D584;
+			remoteInfo = "QR Generator";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		670FC9442C35716F0005D584 /* QR Neural Style Transfer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Neural Style Transfer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		670FC9472C35716F0005D584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		670FC9492C35716F0005D584 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		670FC94B2C35716F0005D584 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		670FC94E2C35716F0005D584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		670FC9502C3571710005D584 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		670FC9532C3571710005D584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		670FC9552C3571710005D584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		670FC95A2C3571710005D584 /* QR Neural Style TransferTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QR Neural Style TransferTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		670FC95E2C3571710005D584 /* QR_Neural_Style_TransferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_Neural_Style_TransferTests.swift; sourceTree = "<group>"; };
-		670FC9642C3571710005D584 /* QR Neural Style TransferUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QR Neural Style TransferUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		670FC9682C3571710005D584 /* QR_Neural_Style_TransferUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_Neural_Style_TransferUITests.swift; sourceTree = "<group>"; };
-		670FC96A2C3571710005D584 /* QR_Neural_Style_TransferUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_Neural_Style_TransferUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		670FC9772C35E95D0005D584 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		670FC9822C35EE490005D584 /* QR Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		670FC9852C35EE490005D584 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		670FC9872C35EE490005D584 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		670FC9892C35EE490005D584 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		670FC98C2C35EE490005D584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		670FC98E2C35EE4A0005D584 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		670FC9912C35EE4A0005D584 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		670FC9932C35EE4A0005D584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		670FC9982C35EE4A0005D584 /* QR GeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QR GeneratorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		670FC99C2C35EE4A0005D584 /* QR_GeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_GeneratorTests.swift; sourceTree = "<group>"; };
+		670FC9A22C35EE4A0005D584 /* QR GeneratorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QR GeneratorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		670FC9A62C35EE4A0005D584 /* QR_GeneratorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_GeneratorUITests.swift; sourceTree = "<group>"; };
+		670FC9A82C35EE4A0005D584 /* QR_GeneratorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_GeneratorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		670FC9B52C35FCD90005D584 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		670FC9412C35716F0005D584 /* Frameworks */ = {
+		670FC97F2C35EE490005D584 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		670FC9572C3571710005D584 /* Frameworks */ = {
+		670FC9952C35EE4A0005D584 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		670FC9612C3571710005D584 /* Frameworks */ = {
+		670FC99F2C35EE4A0005D584 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -78,138 +78,138 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		670FC93B2C35716F0005D584 = {
+		670FC9792C35EE490005D584 = {
 			isa = PBXGroup;
 			children = (
-				670FC9462C35716F0005D584 /* QR Neural Style Transfer */,
-				670FC95D2C3571710005D584 /* QR Neural Style TransferTests */,
-				670FC9672C3571710005D584 /* QR Neural Style TransferUITests */,
-				670FC9452C35716F0005D584 /* Products */,
+				670FC9842C35EE490005D584 /* QR Generator */,
+				670FC99B2C35EE4A0005D584 /* QR GeneratorTests */,
+				670FC9A52C35EE4A0005D584 /* QR GeneratorUITests */,
+				670FC9832C35EE490005D584 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		670FC9452C35716F0005D584 /* Products */ = {
+		670FC9832C35EE490005D584 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				670FC9442C35716F0005D584 /* QR Neural Style Transfer.app */,
-				670FC95A2C3571710005D584 /* QR Neural Style TransferTests.xctest */,
-				670FC9642C3571710005D584 /* QR Neural Style TransferUITests.xctest */,
+				670FC9822C35EE490005D584 /* QR Generator.app */,
+				670FC9982C35EE4A0005D584 /* QR GeneratorTests.xctest */,
+				670FC9A22C35EE4A0005D584 /* QR GeneratorUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		670FC9462C35716F0005D584 /* QR Neural Style Transfer */ = {
+		670FC9842C35EE490005D584 /* QR Generator */ = {
 			isa = PBXGroup;
 			children = (
-				670FC9472C35716F0005D584 /* AppDelegate.swift */,
-				670FC9492C35716F0005D584 /* SceneDelegate.swift */,
-				670FC94B2C35716F0005D584 /* ViewController.swift */,
-				670FC94D2C35716F0005D584 /* Main.storyboard */,
-				670FC9502C3571710005D584 /* Assets.xcassets */,
-				670FC9522C3571710005D584 /* LaunchScreen.storyboard */,
-				670FC9552C3571710005D584 /* Info.plist */,
-				670FC9772C35E95D0005D584 /* ViewModel.swift */,
+				670FC9B52C35FCD90005D584 /* ViewModel.swift */,
+				670FC9852C35EE490005D584 /* AppDelegate.swift */,
+				670FC9872C35EE490005D584 /* SceneDelegate.swift */,
+				670FC9892C35EE490005D584 /* ViewController.swift */,
+				670FC98B2C35EE490005D584 /* Main.storyboard */,
+				670FC98E2C35EE4A0005D584 /* Assets.xcassets */,
+				670FC9902C35EE4A0005D584 /* LaunchScreen.storyboard */,
+				670FC9932C35EE4A0005D584 /* Info.plist */,
 			);
-			path = "QR Neural Style Transfer";
+			path = "QR Generator";
 			sourceTree = "<group>";
 		};
-		670FC95D2C3571710005D584 /* QR Neural Style TransferTests */ = {
+		670FC99B2C35EE4A0005D584 /* QR GeneratorTests */ = {
 			isa = PBXGroup;
 			children = (
-				670FC95E2C3571710005D584 /* QR_Neural_Style_TransferTests.swift */,
+				670FC99C2C35EE4A0005D584 /* QR_GeneratorTests.swift */,
 			);
-			path = "QR Neural Style TransferTests";
+			path = "QR GeneratorTests";
 			sourceTree = "<group>";
 		};
-		670FC9672C3571710005D584 /* QR Neural Style TransferUITests */ = {
+		670FC9A52C35EE4A0005D584 /* QR GeneratorUITests */ = {
 			isa = PBXGroup;
 			children = (
-				670FC9682C3571710005D584 /* QR_Neural_Style_TransferUITests.swift */,
-				670FC96A2C3571710005D584 /* QR_Neural_Style_TransferUITestsLaunchTests.swift */,
+				670FC9A62C35EE4A0005D584 /* QR_GeneratorUITests.swift */,
+				670FC9A82C35EE4A0005D584 /* QR_GeneratorUITestsLaunchTests.swift */,
 			);
-			path = "QR Neural Style TransferUITests";
+			path = "QR GeneratorUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		670FC9432C35716F0005D584 /* QR Neural Style Transfer */ = {
+		670FC9812C35EE490005D584 /* QR Generator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 670FC96E2C3571710005D584 /* Build configuration list for PBXNativeTarget "QR Neural Style Transfer" */;
+			buildConfigurationList = 670FC9AC2C35EE4A0005D584 /* Build configuration list for PBXNativeTarget "QR Generator" */;
 			buildPhases = (
-				670FC9402C35716F0005D584 /* Sources */,
-				670FC9412C35716F0005D584 /* Frameworks */,
-				670FC9422C35716F0005D584 /* Resources */,
+				670FC97E2C35EE490005D584 /* Sources */,
+				670FC97F2C35EE490005D584 /* Frameworks */,
+				670FC9802C35EE490005D584 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "QR Neural Style Transfer";
-			productName = "QR Neural Style Transfer";
-			productReference = 670FC9442C35716F0005D584 /* QR Neural Style Transfer.app */;
+			name = "QR Generator";
+			productName = "QR Generator";
+			productReference = 670FC9822C35EE490005D584 /* QR Generator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		670FC9592C3571710005D584 /* QR Neural Style TransferTests */ = {
+		670FC9972C35EE4A0005D584 /* QR GeneratorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 670FC9712C3571710005D584 /* Build configuration list for PBXNativeTarget "QR Neural Style TransferTests" */;
+			buildConfigurationList = 670FC9AF2C35EE4A0005D584 /* Build configuration list for PBXNativeTarget "QR GeneratorTests" */;
 			buildPhases = (
-				670FC9562C3571710005D584 /* Sources */,
-				670FC9572C3571710005D584 /* Frameworks */,
-				670FC9582C3571710005D584 /* Resources */,
+				670FC9942C35EE4A0005D584 /* Sources */,
+				670FC9952C35EE4A0005D584 /* Frameworks */,
+				670FC9962C35EE4A0005D584 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				670FC95C2C3571710005D584 /* PBXTargetDependency */,
+				670FC99A2C35EE4A0005D584 /* PBXTargetDependency */,
 			);
-			name = "QR Neural Style TransferTests";
-			productName = "QR Neural Style TransferTests";
-			productReference = 670FC95A2C3571710005D584 /* QR Neural Style TransferTests.xctest */;
+			name = "QR GeneratorTests";
+			productName = "QR GeneratorTests";
+			productReference = 670FC9982C35EE4A0005D584 /* QR GeneratorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		670FC9632C3571710005D584 /* QR Neural Style TransferUITests */ = {
+		670FC9A12C35EE4A0005D584 /* QR GeneratorUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 670FC9742C3571710005D584 /* Build configuration list for PBXNativeTarget "QR Neural Style TransferUITests" */;
+			buildConfigurationList = 670FC9B22C35EE4A0005D584 /* Build configuration list for PBXNativeTarget "QR GeneratorUITests" */;
 			buildPhases = (
-				670FC9602C3571710005D584 /* Sources */,
-				670FC9612C3571710005D584 /* Frameworks */,
-				670FC9622C3571710005D584 /* Resources */,
+				670FC99E2C35EE4A0005D584 /* Sources */,
+				670FC99F2C35EE4A0005D584 /* Frameworks */,
+				670FC9A02C35EE4A0005D584 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				670FC9662C3571710005D584 /* PBXTargetDependency */,
+				670FC9A42C35EE4A0005D584 /* PBXTargetDependency */,
 			);
-			name = "QR Neural Style TransferUITests";
-			productName = "QR Neural Style TransferUITests";
-			productReference = 670FC9642C3571710005D584 /* QR Neural Style TransferUITests.xctest */;
+			name = "QR GeneratorUITests";
+			productName = "QR GeneratorUITests";
+			productReference = 670FC9A22C35EE4A0005D584 /* QR GeneratorUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		670FC93C2C35716F0005D584 /* Project object */ = {
+		670FC97A2C35EE490005D584 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					670FC9432C35716F0005D584 = {
+					670FC9812C35EE490005D584 = {
 						CreatedOnToolsVersion = 15.4;
 					};
-					670FC9592C3571710005D584 = {
+					670FC9972C35EE4A0005D584 = {
 						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 670FC9432C35716F0005D584;
+						TestTargetID = 670FC9812C35EE490005D584;
 					};
-					670FC9632C3571710005D584 = {
+					670FC9A12C35EE4A0005D584 = {
 						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 670FC9432C35716F0005D584;
+						TestTargetID = 670FC9812C35EE490005D584;
 					};
 				};
 			};
-			buildConfigurationList = 670FC93F2C35716F0005D584 /* Build configuration list for PBXProject "QR Neural Style Transfer" */;
+			buildConfigurationList = 670FC97D2C35EE490005D584 /* Build configuration list for PBXProject "QR Generator" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,37 +217,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 670FC93B2C35716F0005D584;
-			productRefGroup = 670FC9452C35716F0005D584 /* Products */;
+			mainGroup = 670FC9792C35EE490005D584;
+			productRefGroup = 670FC9832C35EE490005D584 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				670FC9432C35716F0005D584 /* QR Neural Style Transfer */,
-				670FC9592C3571710005D584 /* QR Neural Style TransferTests */,
-				670FC9632C3571710005D584 /* QR Neural Style TransferUITests */,
+				670FC9812C35EE490005D584 /* QR Generator */,
+				670FC9972C35EE4A0005D584 /* QR GeneratorTests */,
+				670FC9A12C35EE4A0005D584 /* QR GeneratorUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		670FC9422C35716F0005D584 /* Resources */ = {
+		670FC9802C35EE490005D584 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				670FC9512C3571710005D584 /* Assets.xcassets in Resources */,
-				670FC9542C3571710005D584 /* Base in Resources */,
-				670FC94F2C35716F0005D584 /* Base in Resources */,
+				670FC98F2C35EE4A0005D584 /* Assets.xcassets in Resources */,
+				670FC9922C35EE4A0005D584 /* Base in Resources */,
+				670FC98D2C35EE490005D584 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		670FC9582C3571710005D584 /* Resources */ = {
+		670FC9962C35EE4A0005D584 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		670FC9622C3571710005D584 /* Resources */ = {
+		670FC9A02C35EE4A0005D584 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -257,62 +257,62 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		670FC9402C35716F0005D584 /* Sources */ = {
+		670FC97E2C35EE490005D584 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				670FC94C2C35716F0005D584 /* ViewController.swift in Sources */,
-				670FC9482C35716F0005D584 /* AppDelegate.swift in Sources */,
-				670FC9782C35E95D0005D584 /* ViewModel.swift in Sources */,
-				670FC94A2C35716F0005D584 /* SceneDelegate.swift in Sources */,
+				670FC98A2C35EE490005D584 /* ViewController.swift in Sources */,
+				670FC9862C35EE490005D584 /* AppDelegate.swift in Sources */,
+				670FC9B62C35FCD90005D584 /* ViewModel.swift in Sources */,
+				670FC9882C35EE490005D584 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		670FC9562C3571710005D584 /* Sources */ = {
+		670FC9942C35EE4A0005D584 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				670FC95F2C3571710005D584 /* QR_Neural_Style_TransferTests.swift in Sources */,
+				670FC99D2C35EE4A0005D584 /* QR_GeneratorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		670FC9602C3571710005D584 /* Sources */ = {
+		670FC99E2C35EE4A0005D584 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				670FC9692C3571710005D584 /* QR_Neural_Style_TransferUITests.swift in Sources */,
-				670FC96B2C3571710005D584 /* QR_Neural_Style_TransferUITestsLaunchTests.swift in Sources */,
+				670FC9A72C35EE4A0005D584 /* QR_GeneratorUITests.swift in Sources */,
+				670FC9A92C35EE4A0005D584 /* QR_GeneratorUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		670FC95C2C3571710005D584 /* PBXTargetDependency */ = {
+		670FC99A2C35EE4A0005D584 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 670FC9432C35716F0005D584 /* QR Neural Style Transfer */;
-			targetProxy = 670FC95B2C3571710005D584 /* PBXContainerItemProxy */;
+			target = 670FC9812C35EE490005D584 /* QR Generator */;
+			targetProxy = 670FC9992C35EE4A0005D584 /* PBXContainerItemProxy */;
 		};
-		670FC9662C3571710005D584 /* PBXTargetDependency */ = {
+		670FC9A42C35EE4A0005D584 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 670FC9432C35716F0005D584 /* QR Neural Style Transfer */;
-			targetProxy = 670FC9652C3571710005D584 /* PBXContainerItemProxy */;
+			target = 670FC9812C35EE490005D584 /* QR Generator */;
+			targetProxy = 670FC9A32C35EE4A0005D584 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		670FC94D2C35716F0005D584 /* Main.storyboard */ = {
+		670FC98B2C35EE490005D584 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				670FC94E2C35716F0005D584 /* Base */,
+				670FC98C2C35EE490005D584 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		670FC9522C3571710005D584 /* LaunchScreen.storyboard */ = {
+		670FC9902C35EE4A0005D584 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				670FC9532C3571710005D584 /* Base */,
+				670FC9912C35EE4A0005D584 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		670FC96C2C3571710005D584 /* Debug */ = {
+		670FC9AA2C35EE4A0005D584 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -383,7 +383,7 @@
 			};
 			name = Debug;
 		};
-		670FC96D2C3571710005D584 /* Release */ = {
+		670FC9AB2C35EE4A0005D584 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -439,7 +439,7 @@
 			};
 			name = Release;
 		};
-		670FC96F2C3571710005D584 /* Debug */ = {
+		670FC9AD2C35EE4A0005D584 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -448,7 +448,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9U8MHZG7ZR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "QR Neural Style Transfer/Info.plist";
+				INFOPLIST_FILE = "QR Generator/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -459,7 +459,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-Neural-Style-Transfer";
+				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-Generator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -467,7 +467,7 @@
 			};
 			name = Debug;
 		};
-		670FC9702C3571710005D584 /* Release */ = {
+		670FC9AE2C35EE4A0005D584 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -476,7 +476,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9U8MHZG7ZR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "QR Neural Style Transfer/Info.plist";
+				INFOPLIST_FILE = "QR Generator/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -487,7 +487,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-Neural-Style-Transfer";
+				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-Generator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -495,7 +495,7 @@
 			};
 			name = Release;
 		};
-		670FC9722C3571710005D584 /* Debug */ = {
+		670FC9B02C35EE4A0005D584 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -506,16 +506,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-Neural-Style-TransferTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-GeneratorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QR Neural Style Transfer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QR Neural Style Transfer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QR Generator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QR Generator";
 			};
 			name = Debug;
 		};
-		670FC9732C3571710005D584 /* Release */ = {
+		670FC9B12C35EE4A0005D584 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -526,16 +526,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-Neural-Style-TransferTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-GeneratorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QR Neural Style Transfer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QR Neural Style Transfer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QR Generator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QR Generator";
 			};
 			name = Release;
 		};
-		670FC9752C3571710005D584 /* Debug */ = {
+		670FC9B32C35EE4A0005D584 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -544,16 +544,16 @@
 				DEVELOPMENT_TEAM = 9U8MHZG7ZR;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-Neural-Style-TransferUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-GeneratorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "QR Neural Style Transfer";
+				TEST_TARGET_NAME = "QR Generator";
 			};
 			name = Debug;
 		};
-		670FC9762C3571710005D584 /* Release */ = {
+		670FC9B42C35EE4A0005D584 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -562,55 +562,55 @@
 				DEVELOPMENT_TEAM = 9U8MHZG7ZR;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-Neural-Style-TransferUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "btcturk.QR-GeneratorUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "QR Neural Style Transfer";
+				TEST_TARGET_NAME = "QR Generator";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		670FC93F2C35716F0005D584 /* Build configuration list for PBXProject "QR Neural Style Transfer" */ = {
+		670FC97D2C35EE490005D584 /* Build configuration list for PBXProject "QR Generator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				670FC96C2C3571710005D584 /* Debug */,
-				670FC96D2C3571710005D584 /* Release */,
+				670FC9AA2C35EE4A0005D584 /* Debug */,
+				670FC9AB2C35EE4A0005D584 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		670FC96E2C3571710005D584 /* Build configuration list for PBXNativeTarget "QR Neural Style Transfer" */ = {
+		670FC9AC2C35EE4A0005D584 /* Build configuration list for PBXNativeTarget "QR Generator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				670FC96F2C3571710005D584 /* Debug */,
-				670FC9702C3571710005D584 /* Release */,
+				670FC9AD2C35EE4A0005D584 /* Debug */,
+				670FC9AE2C35EE4A0005D584 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		670FC9712C3571710005D584 /* Build configuration list for PBXNativeTarget "QR Neural Style TransferTests" */ = {
+		670FC9AF2C35EE4A0005D584 /* Build configuration list for PBXNativeTarget "QR GeneratorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				670FC9722C3571710005D584 /* Debug */,
-				670FC9732C3571710005D584 /* Release */,
+				670FC9B02C35EE4A0005D584 /* Debug */,
+				670FC9B12C35EE4A0005D584 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		670FC9742C3571710005D584 /* Build configuration list for PBXNativeTarget "QR Neural Style TransferUITests" */ = {
+		670FC9B22C35EE4A0005D584 /* Build configuration list for PBXNativeTarget "QR GeneratorUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				670FC9752C3571710005D584 /* Debug */,
-				670FC9762C3571710005D584 /* Release */,
+				670FC9B32C35EE4A0005D584 /* Debug */,
+				670FC9B42C35EE4A0005D584 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 670FC93C2C35716F0005D584 /* Project object */;
+	rootObject = 670FC97A2C35EE490005D584 /* Project object */;
 }

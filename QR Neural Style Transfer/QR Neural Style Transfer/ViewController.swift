@@ -7,13 +7,13 @@
 
 import UIKit
 
+import AVFoundation
+import CoreImage.CIFilterBuiltins
+
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
+    
+    @IBOutlet var myLabel: UILabel!
+    
+    
 }
 
