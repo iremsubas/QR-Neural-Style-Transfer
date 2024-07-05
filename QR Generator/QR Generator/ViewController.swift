@@ -28,8 +28,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private lazy var label: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 25))
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
-        label.center = CGPoint(x: 200, y: 90)
+        //label.center = CGPoint(x: 200, y: 90)
         label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "QR Neural Style Generator"
         return label
         
@@ -70,6 +71,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             //label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             //label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            
+            // Center the label horizontally and vertically in the superview
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            // Set the width of the label to be less than or equal to 80% of the superview's width
+            label.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.8),
+            
+            // Ensure the height is sufficient to display the text
+            label.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
             
             textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150),
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
