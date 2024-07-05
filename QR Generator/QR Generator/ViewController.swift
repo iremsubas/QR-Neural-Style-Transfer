@@ -4,6 +4,10 @@
 //
 //  Created by İremsu  Baş  on 3.07.2024.
 //
+
+
+//TODO: add an export QR thing
+
 import UIKit
 import CoreImage.CIFilterBuiltins
 
