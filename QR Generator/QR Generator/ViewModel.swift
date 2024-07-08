@@ -7,9 +7,8 @@
 import UIKit
 import CoreImage.CIFilterBuiltins
 
-
 class ViewModel {
-    func createQRCode(from string: String, color: UIColor) -> UIImage? {
+    func createQRCode(from string: String, backgroundColor: UIColor) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
         let filter = CIFilter.qrCodeGenerator()
         filter.setValue(data, forKey: "inputMessage")
@@ -18,12 +17,14 @@ class ViewModel {
             let transform = CGAffineTransform(scaleX: 10, y: 10)
             let scaledImage = outputImage.transformed(by: transform)
             
-            if let tintedImage = scaledImage.tinted(using: color) {
-                            return UIImage(ciImage: tintedImage)
-                        }
-                    } else {
-                        print("Failed to create output image.")
-                    }
+            if let finalImage = scaledImage.tinted(using: .black)?.withBackground(using: backgroundColor) {
+                return UIImage(ciImage: finalImage)
+            } else {
+                print("Failed to apply background color.")
+            }
+        } else {
+            print("Failed to create output image.")
+        }
         return nil
     }
 }
@@ -60,19 +61,18 @@ extension CIImage {
 
         return filter.outputImage
     }
-}
 
-extension URL {
-    func qrImage(using color: UIColor) -> CIImage? {
-        return qrImage?.tinted(using: color)
-    }
+    func withBackground(using color: UIColor) -> CIImage? {
+        guard let backgroundFilter = CIFilter(name: "CIConstantColorGenerator") else { return nil }
 
-    var qrImage: CIImage? {
-        guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
-        let qrData = absoluteString.data(using: String.Encoding.ascii)
-        qrFilter.setValue(qrData, forKey: "inputMessage")
+        let ciColor = CIColor(color: color)
+        backgroundFilter.setValue(ciColor, forKey: kCIInputColorKey)
+        let backgroundImage = backgroundFilter.outputImage?.cropped(to: extent)
 
-        let qrTransform = CGAffineTransform(scaleX: 12, y: 12)
-        return qrFilter.outputImage?.transformed(by: qrTransform)
+        let filter = CIFilter(name: "CISourceOverCompositing")
+        filter?.setValue(self, forKey: kCIInputImageKey)
+        filter?.setValue(backgroundImage, forKey: kCIInputBackgroundImageKey)
+
+        return filter?.outputImage
     }
 }
