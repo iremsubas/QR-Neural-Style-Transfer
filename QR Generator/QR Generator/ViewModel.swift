@@ -3,11 +3,17 @@
 //  QR Generator
 //
 //  Created by İremsu  Baş  on 4.07.2024.
-//
+
+//TODO: QR code generate eden class ve viewmodel'da çağır
+//TODO: tüm karar mekanizması viewmodel'da olmalı
+
+
 import UIKit
 import CoreImage.CIFilterBuiltins
 
 class ViewModel {
+    
+    
     func createQRCode(from string: String, backgroundColor: UIColor) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
         let filter = CIFilter.qrCodeGenerator()
