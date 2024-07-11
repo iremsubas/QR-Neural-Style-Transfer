@@ -77,6 +77,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UICollectionViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
         setupViews()
     }
     
@@ -109,7 +110,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UICollectionViewDat
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             collectionView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
-            collectionView.heightAnchor.constraint(equalToConstant: 150)
+            collectionView.heightAnchor.constraint(equalToConstant: 150),
+            
         ])
     }
     
@@ -170,12 +172,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UICollectionViewDat
         prevIndexPath = indexPath
     }
     
-    /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 120, height: 120)
-        
-        
-    }*/
 }
     
 
