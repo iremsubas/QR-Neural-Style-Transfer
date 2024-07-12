@@ -7,7 +7,7 @@
 
 
 //TODO: add an export QR thing
-//TODO: renkleri en aşağı koy ve kutucuklarları büyüt, border koy, border radius ekle, qr code image arkasına shadow ekle, collection view'daki selected item belli olsun(büyüyebilir, checkmark olarbilir vb., bir tane daha collection view ekle qr code'un içindeki rengi değiştir, sonradan da ml model için collection view
+//TODO: bir tane daha collection view ekle qr code'un içindeki rengi değiştir, sonradan da ml model için collection view
 
 import UIKit
 import CoreImage.CIFilterBuiltins
@@ -31,6 +31,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UICollectionViewDat
             view.widthAnchor.constraint(equalToConstant: 220),
             view.heightAnchor.constraint(equalToConstant: 220),
         ])
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOpacity = 1
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 7
+        
         return view
     }()
     
