@@ -4,81 +4,67 @@
 //
 //  Created by İremsu  Baş  on 4.07.2024.
 
-//TODO: QR code generate eden class ve viewmodel'da çağır
-//TODO: tüm karar mekanizması viewmodel'da olmalı
 
 
 import UIKit
 import CoreImage.CIFilterBuiltins
 
-class ViewModel {
+class ViewModel:NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     
+    let colors: [UIColor] = [.yellow, .green, .cyan, .blue, .red, .magenta, .white]
     
-    func createQRCode(from string: String, backgroundColor: UIColor) -> UIImage? {
-        let data = string.data(using: String.Encoding.ascii)
-        let filter = CIFilter.qrCodeGenerator()
-        filter.setValue(data, forKey: "inputMessage")
-        
-        if let outputImage = filter.outputImage {
-            let transform = CGAffineTransform(scaleX: 10, y: 10)
-            let scaledImage = outputImage.transformed(by: transform)
-            
-            if let finalImage = scaledImage.tinted(using: .black)?.withBackground(using: backgroundColor) {
-                return UIImage(ciImage: finalImage)
-            } else {
-                print("Failed to apply background color.")
+    var selectedBackgroundColor: UIColor = .white
+    var prevIndexPath: IndexPath?
+    weak var viewController: ViewController?
+    
+    func generateQrCode(from string: String) {
+            switch QRGeneration.shared.createQrCode(from: string, backgroundColor: selectedBackgroundColor) {
+            case .success(let image):
+                viewController?.showQrCode(image: image)
+            case .error(let errorMessage):
+                viewController?.showToast(message: errorMessage)
             }
-        } else {
-            print("Failed to create output image.")
         }
-        return nil
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return colors.count
     }
-}
-
-extension CIImage {
-    var transparent: CIImage? {
-        return inverted?.blackTransparent
-    }
-
-    var inverted: CIImage? {
-        guard let invertedColorFilter = CIFilter(name: "CIColorInvert") else { return nil }
-        invertedColorFilter.setValue(self, forKey: "inputImage")
-        return invertedColorFilter.outputImage
-    }
-
-    var blackTransparent: CIImage? {
-        guard let blackTransparentFilter = CIFilter(name: "CIMaskToAlpha") else { return nil }
-        blackTransparentFilter.setValue(self, forKey: "inputImage")
-        return blackTransparentFilter.outputImage
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath)
+        cell.layer.cornerRadius = 8
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 2
+        cell.backgroundColor = colors[indexPath.item]
+        return cell
     }
 
-    func tinted(using color: UIColor) -> CIImage? {
-        guard
-            let transparentQRImage = transparent,
-            let filter = CIFilter(name: "CIMultiplyCompositing"),
-            let colorFilter = CIFilter(name: "CIConstantColorGenerator") else { return nil }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+        selectedBackgroundColor = colors[indexPath.item]
 
-        let ciColor = CIColor(color: color)
-        colorFilter.setValue(ciColor, forKey: kCIInputColorKey)
-        let colorImage = colorFilter.outputImage
-
-        filter.setValue(colorImage, forKey: kCIInputImageKey)
-        filter.setValue(transparentQRImage, forKey: kCIInputBackgroundImageKey)
-
-        return filter.outputImage
+        if let prevIndexPath = prevIndexPath, prevIndexPath != indexPath {
+            let prevCell = collectionView.cellForItem(at: prevIndexPath)
+            prevCell?.layer.borderColor = UIColor.black.cgColor
+            prevCell?.layer.borderWidth = 2
+            prevCell?.transform = CGAffineTransform.identity
+        }
+        viewController?.generateQrCode()
+        
+        prevIndexPath = indexPath
     }
 
-    func withBackground(using color: UIColor) -> CIImage? {
-        guard let backgroundFilter = CIFilter(name: "CIConstantColorGenerator") else { return nil }
-
-        let ciColor = CIColor(color: color)
-        backgroundFilter.setValue(ciColor, forKey: kCIInputColorKey)
-        let backgroundImage = backgroundFilter.outputImage?.cropped(to: extent)
-
-        let filter = CIFilter(name: "CISourceOverCompositing")
-        filter?.setValue(self, forKey: kCIInputImageKey)
-        filter?.setValue(backgroundImage, forKey: kCIInputBackgroundImageKey)
-
-        return filter?.outputImage
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 100)
     }
-}
+    
+
+        
+    }
+
+
+    
+
+
+    

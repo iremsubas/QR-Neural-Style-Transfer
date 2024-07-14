@@ -17,6 +17,7 @@
 		670FC9A72C35EE4A0005D584 /* QR_GeneratorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9A62C35EE4A0005D584 /* QR_GeneratorUITests.swift */; };
 		670FC9A92C35EE4A0005D584 /* QR_GeneratorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9A82C35EE4A0005D584 /* QR_GeneratorUITestsLaunchTests.swift */; };
 		670FC9B62C35FCD90005D584 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9B52C35FCD90005D584 /* ViewModel.swift */; };
+		670FC9B82C4157FF0005D584 /* QRGeneration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FC9B72C4157FF0005D584 /* QRGeneration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		670FC9A62C35EE4A0005D584 /* QR_GeneratorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_GeneratorUITests.swift; sourceTree = "<group>"; };
 		670FC9A82C35EE4A0005D584 /* QR_GeneratorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_GeneratorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		670FC9B52C35FCD90005D584 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		670FC9B72C4157FF0005D584 /* QRGeneration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				670FC98E2C35EE4A0005D584 /* Assets.xcassets */,
 				670FC9902C35EE4A0005D584 /* LaunchScreen.storyboard */,
 				670FC9932C35EE4A0005D584 /* Info.plist */,
+				670FC9B72C4157FF0005D584 /* QRGeneration.swift */,
 			);
 			path = "QR Generator";
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				670FC98A2C35EE490005D584 /* ViewController.swift in Sources */,
 				670FC9862C35EE490005D584 /* AppDelegate.swift in Sources */,
+				670FC9B82C4157FF0005D584 /* QRGeneration.swift in Sources */,
 				670FC9B62C35FCD90005D584 /* ViewModel.swift in Sources */,
 				670FC9882C35EE490005D584 /* SceneDelegate.swift in Sources */,
 			);

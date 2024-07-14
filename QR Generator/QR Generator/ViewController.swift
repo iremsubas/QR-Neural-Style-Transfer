@@ -12,17 +12,16 @@
 import UIKit
 import CoreImage.CIFilterBuiltins
 
-class ViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UITextFieldDelegate {
     
-    //TODO: aşağıdaki data source'ları viewmodel'a taşı
+    let viewModel = ViewModel()
+
+    var index: IndexPath = IndexPath()
+
     
-    private let viewModel = ViewModel()
-    
-    private let colors: [UIColor] = [.yellow, .green, .cyan, .blue, .red, .magenta, .white]
-    
-    private var selectedBackgroundColor: UIColor = .white
-    
-    private var prevIndexPath:IndexPath? = nil
+    func ViewController(){
+        
+    }
     
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
@@ -48,6 +47,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UICollectionViewDat
         return label
     }()
     
+    private lazy var error: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 25))
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private lazy var textField: UITextField = {
         let field = UITextField()
         field.autocapitalizationType = .none
@@ -62,19 +69,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UICollectionViewDat
         let button = UIButton(type: .system)
         button.setTitle("Generate QR Code", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(generateQRCode), for: .touchUpInside)
+        button.addTarget(self, action: #selector(generateQrCode), for: .touchUpInside)
         return button
     }()
     
-    private lazy var collectionView: UICollectionView = {
+     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout:
                                                 CollectionViewLayout().createCompositionaLayout())
         
         collectionView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ColorCell")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        collectionView.dataSource = viewModel
+        collectionView.delegate = viewModel
         collectionView.backgroundColor = .clear
         return collectionView
     }()
@@ -82,6 +89,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UICollectionViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        viewModel.viewController = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
         setupViews()
     }
@@ -102,14 +110,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UICollectionViewDat
             label.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.8),
             label.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
             
-            textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150),
+            textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             
-            generateButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 50),
+            generateButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20),
             generateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            imageView.topAnchor.constraint(equalTo: generateButton.bottomAnchor, constant: 20),
+            imageView.topAnchor.constraint(equalTo: generateButton.bottomAnchor, constant: 80),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -120,66 +128,34 @@ class ViewController: UIViewController, UITextFieldDelegate, UICollectionViewDat
         ])
     }
     
-    @objc private func generateQRCode() {
-        guard let urlString = textField.text else {
-            print("Invalid URL")
-            return
+    
+    @objc func generateQrCode() {
+            guard let text = textField.text, !text.isEmpty else {
+                showToast(message: "Please enter text to generate QR Code.")
+                return
+            }
+            viewModel.generateQrCode(from: text)
         }
-        
-        if let qrImage = viewModel.createQRCode(from: urlString, backgroundColor: selectedBackgroundColor) {
-            imageView.image = qrImage
-        } else {
-            print("Failed to generate QR code")
+
+        func showQrCode(image: UIImage) {
+            imageView.image = image
         }
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colors.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath)
-        
-        cell.layer.cornerRadius = 8
-        
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 2
-        
-        cell.backgroundColor = colors[indexPath.item]
-        
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedBackgroundColor = colors[indexPath.item]
-        
-        
-        if prevIndexPath != nil && prevIndexPath! != indexPath {
-            let cell = collectionView.cellForItem(at: prevIndexPath!)
-            
-            
-            cell?.layer.borderColor = UIColor.black.cgColor
-            cell?.layer.borderWidth = 2
-            cell?.transform = CGAffineTransform.identity
-            
+
+        func showToast(message: String) {
+            error.text = message
+            view.addSubview(error)
+            NSLayoutConstraint.activate([
+                error.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                error.topAnchor.constraint(equalTo: generateButton.bottomAnchor, constant: 10),
+            ])
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.error.removeFromSuperview()
+            }
         }
-        
-        let cell = collectionView.cellForItem(at: indexPath)
-        
-        cell?.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
-        
-        
-        generateQRCode()
-        
-        
-        prevIndexPath = indexPath
-    }
+    
     
 }
     
-
 
 
 class CollectionViewLayout {
