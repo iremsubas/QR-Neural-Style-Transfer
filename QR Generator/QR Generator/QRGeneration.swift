@@ -18,7 +18,7 @@ class QRGeneration{
         case error(String)
     }
     
-    func createQrCode(from string: String, backgroundColor: UIColor) -> GeneratorResult {
+    func createQrCode(from string: String, backgroundColor: UIColor, color: UIColor) -> GeneratorResult {
         let data = string.data(using: String.Encoding.ascii)
         let filter = CIFilter.qrCodeGenerator()
         filter.setValue(data, forKey: "inputMessage")
@@ -27,20 +27,23 @@ class QRGeneration{
             let transform = CGAffineTransform(scaleX: 10, y: 10)
             let scaledImage = outputImage.transformed(by: transform)
             
-            if let finalImage = scaledImage.tinted(using: .black)?.withBackground(using: backgroundColor) {
+            if let finalImage = scaledImage.tinted(using: color)?.withBackground(using: backgroundColor) {
                 return .success(UIImage(ciImage: finalImage))
-            } else {
+            }
+      
+            else {
                 return .error("Failed to generate QR code.")
             }
+            
+        }
+            
+            
+        return .error("Failed to generate QR code.")
         }
         
-        return .error("Failed to generate QR code.")
-        
-        
-        
-        
-    }
+    
 }
+
 
 extension CIImage {
     var transparent: CIImage? {

@@ -16,8 +16,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     let viewModel = ViewModel()
 
-    var index: IndexPath = IndexPath()
-
     
     func ViewController(){
         
@@ -73,12 +71,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-     lazy var collectionView: UICollectionView = {
+     lazy var collectionViewBackground: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout:
                                                 CollectionViewLayout().createCompositionaLayout())
         
         collectionView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ColorCell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "BackgroundColorCell")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = viewModel
         collectionView.delegate = viewModel
@@ -86,11 +84,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return collectionView
     }()
     
+    lazy var collectionViewQR: UICollectionView = {
+       let collectionView = UICollectionView(frame: .zero, collectionViewLayout:
+                                               CollectionViewLayout().createCompositionaLayout())
+       
+       collectionView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
+       collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ColorCell")
+       collectionView.translatesAutoresizingMaskIntoConstraints = false
+       collectionView.dataSource = viewModel
+       collectionView.delegate = viewModel
+       collectionView.backgroundColor = .clear
+       return collectionView
+   }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         viewModel.viewController = self
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
+        collectionViewQR.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
+        collectionViewBackground.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
         setupViews()
     }
     
@@ -98,7 +110,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(label)
         view.addSubview(textField)
         view.addSubview(generateButton)
-        view.addSubview(collectionView)
+        view.addSubview(collectionViewQR)
+        view.addSubview(collectionViewBackground)
         view.addSubview(imageView)
         setupConstraints()
     }
@@ -110,20 +123,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
             label.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.8),
             label.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
             
-            textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             
             generateButton.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20),
             generateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            imageView.topAnchor.constraint(equalTo: generateButton.bottomAnchor, constant: 80),
+            imageView.topAnchor.constraint(equalTo: generateButton.bottomAnchor, constant: 60),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            collectionView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
-            collectionView.heightAnchor.constraint(equalToConstant: 150),
+            collectionViewQR.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            collectionViewQR.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            collectionViewQR.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -300),
+            collectionViewQR.heightAnchor.constraint(equalToConstant: 150),
+            
+            collectionViewBackground.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            collectionViewBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            collectionViewBackground.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -160),
+            collectionViewBackground.heightAnchor.constraint(equalToConstant: 150),
             
         ])
     }
@@ -162,7 +180,7 @@ class CollectionViewLayout {
     func createCompositionaLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 90, height: 90)
         layout.minimumLineSpacing = 20
         return layout
     }
