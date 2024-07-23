@@ -4,18 +4,30 @@
 //
 //  Created by İremsu  Baş  on 12.07.2024.
 //
+//TODO: Protocol ekle
 
 import Foundation
 import UIKit
 import CoreImage.CIFilterBuiltins
 
-class QRGeneration{
+//TODO: Sharedden kurtul
+
+enum GeneratorResult {
+    case success(UIImage)
+    case error(String)
+}
+
+
+protocol QRGeneratable {
+    func createQrCode(from string: String, backgroundColor: UIColor, color: UIColor) -> GeneratorResult
+}
+
+final class QRGeneration {
     
-    static let shared: QRGeneration = .init()
+    var QRGenerator: QRGeneratable
     
-    enum GeneratorResult {
-        case success(UIImage)
-        case error(String)
+    init(_ QRGenerator: QRGeneratable){
+        self.QRGenerator = QRGenerator
     }
     
     func createQrCode(from string: String, backgroundColor: UIColor, color: UIColor) -> GeneratorResult {

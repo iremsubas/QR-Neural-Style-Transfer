@@ -7,19 +7,27 @@
 
 
 //TODO: add an export QR thing
-//TODO: bir tane daha collection view ekle qr code'un içindeki rengi değiştir, sonradan da ml model için collection view
+//TODO: sonradan da ml model için collection view
 
 import UIKit
 import CoreImage.CIFilterBuiltins
 
-class ViewController: UIViewController, UITextFieldDelegate {
-    
-    let viewModel = ViewModel()
+/*protocol ViewControllerProtocol {
+    func showQRCode(image: UIImage)
+    func showToast(message: String)
+    func generateQRCode()
+}*/
 
+final class ViewController: UIViewController, UITextFieldDelegate, ViewModelProtocol {
     
-    func ViewController(){
-        
-    }
+    
+    
+    var collectionViewDataSource: UICollectionViewDataSource?
+    
+    var collectionViewDelegate: UICollectionViewDelegate?
+    
+    var viewModel:ViewModelProtocol?
+    
     
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
@@ -67,9 +75,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let button = UIButton(type: .system)
         button.setTitle("Generate QR Code", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(generateQrCode), for: .touchUpInside)
+        button.addTarget(self, action: #selector(generateQRCode), for: .touchUpInside)
         return button
     }()
+    
     
      lazy var collectionViewBackground: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout:
@@ -78,8 +87,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         collectionView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "BackgroundColorCell")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.dataSource = viewModel
-        collectionView.delegate = viewModel
         collectionView.backgroundColor = .clear
         return collectionView
     }()
@@ -91,20 +98,57 @@ class ViewController: UIViewController, UITextFieldDelegate {
        collectionView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ColorCell")
        collectionView.translatesAutoresizingMaskIntoConstraints = false
-       collectionView.dataSource = viewModel
-       collectionView.delegate = viewModel
        collectionView.backgroundColor = .clear
        return collectionView
    }()
     
+    func setViewController(viewController: UIViewController) {
+        viewModel?.setViewController(viewController: self)
+    }
+
+
+    
+    func getColors() -> [UIColor] {
+        guard let colors = viewModel?.getColors() else {
+                    return []
+                }
+                return colors
+    }
+    
+    
+    
+    private func setCollectionViews() {
+        
+        guard let viewModel = viewModel else {
+                print("viewModel is nil")
+                return
+            }
+
+        
+        collectionViewDataSource = CollectionViewDataSourceObject(.init(color: getColors(), identifiers: [collectionViewBackground: "BackgroundColorCell", collectionViewQR: "ColorCell"]))
+        collectionViewDelegate = CollectionViewDelegateObject(viewModel as! ColorSelectionListable)
+        
+        collectionViewBackground.dataSource = collectionViewDataSource
+        collectionViewBackground.delegate = collectionViewDelegate
+        
+        collectionViewQR.dataSource = collectionViewDataSource
+        collectionViewQR.delegate = collectionViewDelegate
+    }
+ 
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        viewModel.viewController = self
+        viewModel?.setViewController(viewController: self)
         collectionViewQR.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
         collectionViewBackground.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
+        
+        setCollectionViews()
         setupViews()
     }
+    
+   
     
     private func setupViews() {
         view.addSubview(label)
@@ -115,6 +159,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(imageView)
         setupConstraints()
     }
+    
+    
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -147,29 +193,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @objc func generateQrCode() {
-            guard let text = textField.text, !text.isEmpty else {
-                showToast(message: "Please enter text to generate QR Code.")
-                return
-            }
-            viewModel.generateQrCode(from: text)
+    @objc func generateQRCode() {
+        guard let text = textField.text, !text.isEmpty else {
+            showToast(message: "Please enter text to generate QR Code.")
+            return
         }
+        generatingQRCode(string: text)
+    }
+    
+    func generatingQRCode(string: String) {
+        viewModel?.generatingQRCode(string: string)
+    }
+    
+    func showQRCode(image: UIImage) {
+        imageView.image = image
+    }
 
-        func showQrCode(image: UIImage) {
-            imageView.image = image
+    func showToast(message: String) {
+        error.text = message
+        view.addSubview(error)
+        NSLayoutConstraint.activate([
+            error.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            error.topAnchor.constraint(equalTo: generateButton.bottomAnchor, constant: 10),
+        ])
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.error.removeFromSuperview()
         }
-
-        func showToast(message: String) {
-            error.text = message
-            view.addSubview(error)
-            NSLayoutConstraint.activate([
-                error.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                error.topAnchor.constraint(equalTo: generateButton.bottomAnchor, constant: 10),
-            ])
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.error.removeFromSuperview()
-            }
-        }
+    }
+    
+    
     
     
 }
