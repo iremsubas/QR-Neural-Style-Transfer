@@ -18,7 +18,7 @@ import CoreImage.CIFilterBuiltins
     func generateQRCode()
 }*/
 
-final class ViewController: UIViewController, UITextFieldDelegate, ViewModelProtocol {
+final class ViewController: UIViewController, UITextFieldDelegate {
     
     
     
@@ -102,19 +102,7 @@ final class ViewController: UIViewController, UITextFieldDelegate, ViewModelProt
        return collectionView
    }()
     
-    func setViewController(viewController: UIViewController) {
-        viewModel?.setViewController(viewController: self)
-    }
-
-
-    
-    func getColors() -> [UIColor] {
-        guard let colors = viewModel?.getColors() else {
-                    return []
-                }
-                return colors
-    }
-    
+  
     
     
     private func setCollectionViews() {
@@ -125,7 +113,7 @@ final class ViewController: UIViewController, UITextFieldDelegate, ViewModelProt
             }
 
         
-        collectionViewDataSource = CollectionViewDataSourceObject(.init(color: getColors(), identifiers: [collectionViewBackground: "BackgroundColorCell", collectionViewQR: "ColorCell"]))
+        collectionViewDataSource = CollectionViewDataSourceObject(.init(color: viewModel.getColors(), identifiers: [collectionViewBackground: "BackgroundColorCell", collectionViewQR: "ColorCell"]))
         collectionViewDelegate = CollectionViewDelegateObject(viewModel as! ColorSelectionListable)
         
         collectionViewBackground.dataSource = collectionViewDataSource
@@ -140,7 +128,8 @@ final class ViewController: UIViewController, UITextFieldDelegate, ViewModelProt
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        viewModel?.setViewController(viewController: self)
+        
+        
         collectionViewQR.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
         collectionViewBackground.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
         
@@ -198,12 +187,9 @@ final class ViewController: UIViewController, UITextFieldDelegate, ViewModelProt
             showToast(message: "Please enter text to generate QR Code.")
             return
         }
-        generatingQRCode(string: text)
+        viewModel?.generatingQRCode(string: text)
     }
     
-    func generatingQRCode(string: String) {
-        viewModel?.generatingQRCode(string: string)
-    }
     
     func showQRCode(image: UIImage) {
         imageView.image = image

@@ -15,7 +15,7 @@ protocol ViewModelProtocol {
     func getColors() -> [UIColor]
 }
 
-final class ViewModel: NSObject, ColorSelectionListable, QRGeneratable {
+final class ViewModel: NSObject, ColorSelectionListable, ViewModelProtocol {
     
     var viewModel: ViewModelProtocol?
     
@@ -29,10 +29,10 @@ final class ViewModel: NSObject, ColorSelectionListable, QRGeneratable {
     var prevIndexPathQR: IndexPath?
     weak var viewController: ViewController?
     
-    func createQrCode(from string: String, backgroundColor: UIColor, color: UIColor) -> GeneratorResult {
-        return (self.QRGeneration?.createQrCode(from: string, backgroundColor: backgroundColor, color: color))!
+    init(qrGeneration: QRGeneratable) {
+        self.QRGeneration = qrGeneration
     }
-    
+
     func setViewController(viewController: UIViewController) {
         self.viewController = (viewController as! ViewController)
     }
@@ -42,13 +42,15 @@ final class ViewModel: NSObject, ColorSelectionListable, QRGeneratable {
     }
     
     func generatingQRCode(string: String) {
-        switch createQrCode(from: string, backgroundColor: selectedBackgroundColor, color: selectedColor) {
+        switch QRGeneration?.createQrCode(from: string, backgroundColor: selectedBackgroundColor, color: selectedColor) {
             case .success(let image):
                 viewController?.showQRCode(image: image)
             case .error(let errorMessage):
                 viewController?.showToast(message: errorMessage)
             
-            }
+        case .none:
+            break
+        }
     }
     
     func didSelectItem(collectionView: UICollectionView, indexPath: IndexPath) {

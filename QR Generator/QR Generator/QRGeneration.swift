@@ -22,13 +22,8 @@ protocol QRGeneratable {
     func createQrCode(from string: String, backgroundColor: UIColor, color: UIColor) -> GeneratorResult
 }
 
-final class QRGeneration {
+final class QRGeneration: QRGeneratable {
     
-    var QRGenerator: QRGeneratable
-    
-    init(_ QRGenerator: QRGeneratable){
-        self.QRGenerator = QRGenerator
-    }
     
     func createQrCode(from string: String, backgroundColor: UIColor, color: UIColor) -> GeneratorResult {
         let data = string.data(using: String.Encoding.ascii)
